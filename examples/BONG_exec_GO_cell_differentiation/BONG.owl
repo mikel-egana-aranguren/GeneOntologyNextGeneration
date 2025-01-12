@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY BongOntologyTemplate "http://www.gong.manchester.ac.uk/BongOntologyTemplate.owl#">
+  <!ENTITY BongOntologyTemplate.owl "http://www.gong.manchester.ac.uk/BongOntologyTemplate.owl">
+  <!ENTITY cell.owl "http://www.gong.manchester.ac.uk/cell.owl">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="&BongOntologyTemplate.owl;"
+         xmlns:BongOntologyTemplate="&BongOntologyTemplate;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="">
+    <owl:imports>
+      <owl:Ontology rdf:about="http://www.geneontology.org/owl"/>
+    </owl:imports>
+    <owl:imports>
+      <owl:Ontology rdf:about="&cell.owl;"/>
+    </owl:imports>
+  </owl:Ontology>
+
+<!-- Classes -->
+  <owl:Class rdf:about="#AccesoryClass">
+    <rdfs:subClassOf rdf:resource="#Ontology"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#AccesoryOntology">
+    <BongOntologyTemplate:OntologyURI>http://www.gong.manchester.ac.uk/cell.owl</BongOntologyTemplate:OntologyURI>
+    <rdfs:subClassOf rdf:resource="#Ontology"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#BONGWorkflow">
+    <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CentralOntology"
+             BongOntologyTemplate:OntologyURI="http://www.geneontology.org/owl">
+    <rdfs:subClassOf rdf:resource="#Ontology"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mapping">
+    <rdfs:subClassOf rdf:resource="#BONGWorkflow"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mapping1">
+    <BongOntologyTemplate:MapsFrom rdf:datatype="&xsd;string">cell</BongOntologyTemplate:MapsFrom>
+    <BongOntologyTemplate:MapsTo>http://www.gong.manchester.ac.uk/cell.owl#CL_0000000</BongOntologyTemplate:MapsTo>
+    <rdfs:subClassOf rdf:resource="#Mapping"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mapping2">
+    <BongOntologyTemplate:MapsFrom rdf:datatype="&xsd;string">central nervous system neuron</BongOntologyTemplate:MapsFrom>
+    <BongOntologyTemplate:MapsTo>http://www.gong.manchester.ac.uk/cell.owl#CL_0000117</BongOntologyTemplate:MapsTo>
+    <rdfs:subClassOf rdf:resource="#Mapping"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mapping3">
+    <BongOntologyTemplate:MapsFrom rdf:datatype="&xsd;string">columnar/cuboidal epithelial cell</BongOntologyTemplate:MapsFrom>
+    <BongOntologyTemplate:MapsTo>http://www.gong.manchester.ac.uk/cell.owl#CL_0000146</BongOntologyTemplate:MapsTo>
+    <rdfs:subClassOf rdf:resource="#Mapping"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Ontology">
+    <rdfs:subClassOf rdf:resource="#BONGWorkflow"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Regexp">
+    <rdfs:comment rdf:datatype="&xsd;string">Most specific first</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#BONGWorkflow"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Regexp1">
+    <BongOntologyTemplate:RegexpString rdf:datatype="&xsd;string">(.+?) (maturation)</BongOntologyTemplate:RegexpString>
+    <rdfs:subClassOf rdf:resource="#Regexp"/>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="#maturation"/>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#acts_on"/>
+        <owl:someValuesFrom rdf:resource="#RegexpMatchGroup1"/>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Regexp2">
+    <BongOntologyTemplate:RegexpString rdf:datatype="&xsd;string">(.+?) (development)</BongOntologyTemplate:RegexpString>
+    <rdfs:subClassOf rdf:resource="#Regexp"/>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="#development"/>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#acts_on"/>
+        <owl:someValuesFrom rdf:resource="#RegexpMatchGroup1"/>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Regexp3">
+    <BongOntologyTemplate:RegexpString rdf:datatype="&xsd;string">(.+?) (differentiation)</BongOntologyTemplate:RegexpString>
+    <rdfs:subClassOf rdf:resource="#Regexp"/>
+    <owl:intersectionOf rdf:parseType="Collection">
+      <rdf:Description rdf:about="#differentiation"/>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#acts_on"/>
+        <owl:someValuesFrom rdf:resource="#RegexpMatchGroup1"/>
+      </owl:Restriction>
+    </owl:intersectionOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#RegexpMatchGroup1">
+    <rdfs:subClassOf rdf:resource="#Regexp"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#RegexpMatchGroup2">
+    <rdfs:subClassOf rdf:resource="#Regexp"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#RootTerm">
+    <BongOntologyTemplate:ClassURI>http://www.geneontology.org/owl#GO_0048468</BongOntologyTemplate:ClassURI>
+    <rdfs:subClassOf rdf:resource="#Ontology"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#development">
+    <rdfs:subClassOf rdf:resource="#AccesoryClass"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#differentiation">
+    <rdfs:subClassOf rdf:resource="#AccesoryClass"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#maturation">
+    <rdfs:subClassOf rdf:resource="#AccesoryClass"/>
+  </owl:Class>
+
+<!-- Annotation Properties -->
+  <owl:AnnotationProperty rdf:about="#ClassURI">
+    <rdfs:comment rdf:datatype="&xsd;string">URI+ClassName; "http://www.ac.com/x.owl#clazz"</rdfs:comment>
+  </owl:AnnotationProperty>
+
+  <owl:AnnotationProperty rdf:about="#MapsFrom">
+    <rdfs:comment rdf:datatype="&xsd;string">Token from class name, eg; "fat cell"</rdfs:comment>
+  </owl:AnnotationProperty>
+
+  <owl:AnnotationProperty rdf:about="#MapsTo">
+    <rdfs:comment rdf:datatype="&xsd;string">URI+ClassName, eg; "http://www.ac.com/x.owl#clazz"</rdfs:comment>
+  </owl:AnnotationProperty>
+
+  <owl:AnnotationProperty rdf:about="#OntologyURI">
+    <rdfs:comment rdf:datatype="&xsd;string">eg; "http://www.ac.com/x.owl"</rdfs:comment>
+  </owl:AnnotationProperty>
+
+  <owl:AnnotationProperty rdf:about="#RegexpString">
+    <rdfs:comment rdf:datatype="&xsd;string">eg; "(.+?) (development)$"</rdfs:comment>
+  </owl:AnnotationProperty>
+
+  <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+  <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+
+<!-- Object Properties -->
+  <owl:ObjectProperty rdf:about="#acts_on"/>
+</rdf:RDF>

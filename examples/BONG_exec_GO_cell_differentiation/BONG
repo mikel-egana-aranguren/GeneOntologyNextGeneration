@@ -1,0 +1,4 @@
+[HypersonicTableName] bong21
+[BONGOntology] http://www.gong.manchester.ac.uk/BongOntologyTemplate.owl - file:/home/pik/Desktop/bong_2007/examples/BONG_exec_GO_cell_differentiation/BONG.owl
+[CentralOntology] http://www.geneontology.org/owl - file:/home/pik/Desktop/bong_2007/examples/BONG_exec_GO_cell_differentiation/go.owl
+[AccesoryOntology] http://www.gong.manchester.ac.uk/cell.owl - file:/home/pik/Desktop/bong_2007/examples/BONG_exec_GO_cell_differentiation/cell.owl

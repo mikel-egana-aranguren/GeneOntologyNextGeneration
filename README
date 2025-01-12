@@ -1,0 +1,5 @@
+To execute the example:
+
+java -jar -Xmx1000M bong.jar examples/BONG_exec_GO_cell_differentiation/BONG
+
+java -jar db_cleaner.jar bong21
